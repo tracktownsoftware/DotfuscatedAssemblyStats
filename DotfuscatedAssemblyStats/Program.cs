@@ -56,10 +56,6 @@ namespace DotfuscatedAssemblyStats
                 allAssemblyTotals.Fields.Count += inputAssembly.Fields.Count;
                 allAssemblyTotals.Fields.Renamed += inputAssembly.Fields.Renamed;
                 CalculatePercentages(inputAssembly);
-                Console.WriteLine(inputAssembly.Name);
-                Console.WriteLine(String.Format("\tTypes Renamed: {0} of {1} ({2:F2}%)", inputAssembly.Types.Renamed, inputAssembly.Types.Count, inputAssembly.Types.RenamedPercent));
-                Console.WriteLine(String.Format("\tMethods Renamed: {0} of {1} ({2:F2}%)", inputAssembly.Methods.Renamed, inputAssembly.Methods.Count, inputAssembly.Methods.RenamedPercent ));
-                Console.WriteLine(String.Format("\tFields Renamed: {0} of {1} ({2:F2}%)", inputAssembly.Fields.Renamed, inputAssembly.Fields.Count, inputAssembly.Fields.RenamedPercent));
             }
 
             CalculatePercentages(allAssemblyTotals);
@@ -67,7 +63,15 @@ namespace DotfuscatedAssemblyStats
             Console.WriteLine(String.Format("\tTypes Renamed: {0} of {1} ({2:F2}%)", allAssemblyTotals.Types.Renamed, allAssemblyTotals.Types.Count, allAssemblyTotals.Types.RenamedPercent));
             Console.WriteLine(String.Format("\tMethods Renamed: {0} of {1} ({2:F2}%)", allAssemblyTotals.Methods.Renamed, allAssemblyTotals.Methods.Count, allAssemblyTotals.Methods.RenamedPercent));
             Console.WriteLine(String.Format("\tFields Renamed: {0} of {1} ({2:F2}%)", allAssemblyTotals.Fields.Renamed, allAssemblyTotals.Fields.Count, allAssemblyTotals.Fields.RenamedPercent));
- 
+
+            foreach (var inputAssembly in inputAssemblies)
+            {
+                Console.WriteLine(inputAssembly.Name);
+                Console.WriteLine(String.Format("\tTypes Renamed: {0} of {1} ({2:F2}%)", inputAssembly.Types.Renamed, inputAssembly.Types.Count, inputAssembly.Types.RenamedPercent));
+                Console.WriteLine(String.Format("\tMethods Renamed: {0} of {1} ({2:F2}%)", inputAssembly.Methods.Renamed, inputAssembly.Methods.Count, inputAssembly.Methods.RenamedPercent));
+                Console.WriteLine(String.Format("\tFields Renamed: {0} of {1} ({2:F2}%)", inputAssembly.Fields.Renamed, inputAssembly.Fields.Count, inputAssembly.Fields.RenamedPercent));
+            }
+
             Console.ReadKey();
 
         }
